@@ -24,6 +24,10 @@ public class GameInput : MonoBehaviour
     private void EnablePlayerActionMap() {
         playerInputActions.Player.Enable();
     }
+    public Vector2 GetMousePosition() {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
     public Vector2 GetMovementVectorNormalized() {
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
         return NormalizeMovementVector(inputVector);
@@ -32,4 +36,6 @@ public class GameInput : MonoBehaviour
     private Vector2 NormalizeMovementVector(Vector2 inputVector) {
         return inputVector.normalized;
     }
+
+
 }
